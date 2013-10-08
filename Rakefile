@@ -23,8 +23,9 @@ end
 desc 'Run knife cookbook syntax test'
 task :cookbook_test do
   puts 'Running cookbook syntax checks...'
-  path = File.dirname(__FILE__)
-  puts %x{knife cookbook test -c test/knife.rb -o .. #{path}}
+  path = File.expand_path('../..', __FILE__)
+  cb = File.basename(File.expand_path('..', __FILE__))
+  puts %x{knife cookbook test -c test/knife.rb -o #{path} #{cb}}
   $?.exitstatus == 0 or fail 'Cookbook syntax check failed!'
 end
 
