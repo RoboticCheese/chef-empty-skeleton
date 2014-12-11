@@ -1,3 +1,5 @@
+# Encoding: UTF-8
+
 require 'spec_helper'
 
 describe 'demo::default' do
