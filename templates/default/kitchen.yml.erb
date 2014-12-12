@@ -1,16 +1,27 @@
 ---
+<% if @driver %>
 driver:
-  name: vagrant
+  name: <%= @driver %>
+<% end %>
+<% if @provisioner %>
 
 provisioner:
-  name: chef_zero
+  name: <%= @provisioner %>
+<% end %>
+<% if @platforms %>
 
 platforms:
-  - name: ubuntu-12.04
-  - name: centos-6.5
+  <% @platforms.each do |p| %>
+  - name: <%= p %>
+  <% end %>
+<% end %>
+<% if @suites %>
 
 suites:
-  - name: default
+  <% @suites.each do |s| %>
+  - name: <%= s %>
     run_list:
-      - recipe[<%= cookbook_name %>::default]
+      - recipe[<%= s == 'default' ? cookbook_name : "#{cookbook_name}::#{s}" %>]
     attributes:
+  <% end %>
+<% end %>

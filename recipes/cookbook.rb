@@ -48,8 +48,22 @@ end
 template "#{cookbook_dir}/.kitchen.yml" do
   source 'kitchen.yml.erb'
   helpers(ChefDK::Generator::TemplateHelper)
+  variables(
+    driver: 'vagrant',
+    provisioner: 'chef_zero',
+    platforms: %w(ubuntu-14.04 ubuntu-12.04 centos-6.5 centos-5.11),
+    suites: %w(default)
+  )
   action :create_if_missing
 end
+
+template "#{cookbook_dir}/.kitchen.travis.yml" do
+  source 'kitchen.yml.erb'
+  variables(driver: 'digitalocean')
+end
+
+# Test environment variables
+cookbook_file "#{cookbook_dir}/.env.sh"
 
 # Recipes
 
