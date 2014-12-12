@@ -1,4 +1,82 @@
-# <%= cookbook_name %>
+<%
+cn = cookbook_name.split('-').map { |i| i.capitalize }.join(' ')
+head = "#{cn} Cookbook"
+%>
+<%= head %>
+<%= '=' * head.length %>
 
 TODO: Enter the cookbook description here.
 
+Requirements
+============
+
+TODO: Describe cookbook dependencies.
+
+Usage
+=====
+
+TODO: Describe how to use the cookbook.
+
+Recipes
+=======
+
+***default***
+
+TODO: Describe each component recipe.
+
+Attributes
+==========
+
+***default***
+
+TODO: Describe any noteworthy attributes.
+
+Resources
+=========
+
+***<%= cookbook_name.gsub('-', '_') %>***
+
+TODO: Describe each included resource.
+
+Syntax:
+
+    <%= cookbook_name.gsub('-', '_') %> 'my_resource' do
+        attribute1 'value1'
+        action :create
+    end
+
+Actions:
+
+| Action  | Description  |
+|---------|--------------|
+| action1 | Do something |
+
+Attributes:
+
+| Attribute  | Default        | Description          |
+|------------|----------------|----------------------|
+| attribute1 | `'some_value'` | Do something         |
+| action     | `:create`      | Action(s) to perform |
+
+Providers
+=========
+
+TODO: Describe each included provider
+
+***Chef::Provider::SomeProvider***
+
+Contributing
+============
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Add tests for the new feature; ensure they pass (`rake`)
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create a new Pull Request
+
+License & Authors
+=================
+- Author: <%= copyright_holder %> <<%= email %>>
+
+<%= license_description.rstrip %>

@@ -1,0 +1,12 @@
+<%
+require 'date'
+
+cn = cookbook_name.split('-').map { |i| i.capitalize }.join(' ')
+head = "#{cn} Cookbook CHANGELOG"
+%>
+<%= head %>
+<%= '=' * head.length %>
+
+v0.0.1 (<%= Date.today %>)
+-------------------
+- Development started

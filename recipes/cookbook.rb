@@ -36,11 +36,63 @@ template "#{cookbook_dir}/README.md" do
   action :create_if_missing
 end
 
+# CHANGELOG
+template "#{cookbook_dir}/CHANGELOG.md" do
+  helpers(ChefDK::Generator::TemplateHelper)
+  action :create_if_missing
+end
+
 # chefignore
 cookbook_file "#{cookbook_dir}/chefignore"
 
+# Bundler
+cookbook_file "#{cookbook_dir}/Gemfile" do
+  action :create_if_missing
+end
+
+# Rake
+cookbook_file "#{cookbook_dir}/Rakefile" do
+  action :create_if_missing
+end
+directory "#{cookbook_dir}/test"
+cookbook_file "#{cookbook_dir}/test/knife.rb" do
+  action :create_if_missing
+end
+
 # Berks
 cookbook_file "#{cookbook_dir}/Berksfile" do
+  action :create_if_missing
+end
+
+# Guard
+cookbook_file "#{cookbook_dir}/Guardfile" do
+  action :create_if_missing
+end
+
+# RuboCop
+cookbook_file "#{cookbook_dir}/.rubocop.yml" do
+  action :create_if_missing
+end
+
+# RSpec/ChefSpec
+directory "#{cookbook_dir}/spec"
+cookbook_file "#{cookbook_dir}/spec/spec_helper.rb" do
+  source 'spec_helper.chefspec.rb'
+  action :create_if_missing
+end
+directory "#{cookbook_dir}/spec/recipes"
+template "#{cookbook_dir}/spec/recipes/default_spec.rb" do
+  helpers(ChefDK::Generator::TemplateHelper)
+  action :create_if_missing
+end
+
+# ServerSpec
+directory "#{cookbook_dir}/test/integration/default/serverspec" do
+  recursive true
+end
+cf = "#{cookbook_dir}/test/integration/default/serverspec/spec_helper.rb"
+cookbook_file cf do
+  source 'spec_helper.serverspec.rb'
   action :create_if_missing
 end
 
@@ -60,10 +112,13 @@ end
 template "#{cookbook_dir}/.kitchen.travis.yml" do
   source 'kitchen.yml.erb'
   variables(driver: 'digitalocean')
+  action :create_if_missing
 end
 
 # Test environment variables
-cookbook_file "#{cookbook_dir}/.env.sh"
+cookbook_file "#{cookbook_dir}/.env.sh" do
+  action :create_if_missing
+end
 
 # Recipes
 
