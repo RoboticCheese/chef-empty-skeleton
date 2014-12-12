@@ -21,8 +21,10 @@
 module ChefDK
   module Generator
     module TemplateHelper
-      alias_method :attribute_name, :new_file_basename
-      alias_method :recipe_name, :new_file_basename
+      def recipe_name
+        defined?(new_file_basename) ? new_file_basename : 'default'
+      end
+      alias_method :attribute_name, :recipe_name
 
       def attribute_namespace
         cookbook_name.gsub('-', '_')

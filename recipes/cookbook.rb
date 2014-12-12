@@ -56,7 +56,7 @@ end
 directory "#{cookbook_dir}/recipes"
 
 template "#{cookbook_dir}/recipes/default.rb" do
-  source "default_recipe.rb.erb"
+  source "recipe.rb.erb"
   helpers(ChefDK::Generator::TemplateHelper)
   action :create_if_missing
 end
