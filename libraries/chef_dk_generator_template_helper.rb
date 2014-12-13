@@ -32,6 +32,10 @@ module ChefDK
       def attribute_namespace
         cookbook_name.gsub('-', '_')
       end
+
+      [:copyright_holder, :email, :license].each do |i|
+        define_method(i) { node['code_generator'][i] }
+      end
     end
   end
 end

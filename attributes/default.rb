@@ -18,5 +18,6 @@
 # limitations under the License.
 #
 
-default['code_generator']['owner'] = 'Jonathan Hartman'
+default['code_generator']['copyright_holder'] = 'Jonathan Hartman'
 default['code_generator']['email'] = 'j@p4nt5.com'
+default['code_generator']['license'] = 'apache2'
