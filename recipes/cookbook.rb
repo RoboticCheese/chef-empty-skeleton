@@ -34,27 +34,14 @@ end
 # chefignore
 cookbook_file "#{cookbook_dir}/chefignore"
 
-# Bundler
-cookbook_file "#{cookbook_dir}/Gemfile" do
-  action :create_if_missing
+%w(Gemfile Rakefile Berksfile Guardfile).each do |f|
+  cookbook_file File.join(cookbook_dir, f) do
+    action :create_if_missing
+  end
 end
 
-# Rake
-cookbook_file "#{cookbook_dir}/Rakefile" do
-  action :create_if_missing
-end
 directory "#{cookbook_dir}/test"
 cookbook_file "#{cookbook_dir}/test/knife.rb" do
-  action :create_if_missing
-end
-
-# Berks
-cookbook_file "#{cookbook_dir}/Berksfile" do
-  action :create_if_missing
-end
-
-# Guard
-cookbook_file "#{cookbook_dir}/Guardfile" do
   action :create_if_missing
 end
 
