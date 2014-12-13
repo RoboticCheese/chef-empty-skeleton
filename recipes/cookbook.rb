@@ -34,7 +34,7 @@ end
 # chefignore
 cookbook_file "#{cookbook_dir}/chefignore"
 
-%w(Gemfile Rakefile Berksfile Guardfile).each do |f|
+%w(Gemfile Rakefile Berksfile Guardfile .travis.yml).each do |f|
   cookbook_file File.join(cookbook_dir, f) do
     action :create_if_missing
   end
