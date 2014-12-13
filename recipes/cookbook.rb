@@ -24,22 +24,11 @@ cookbook_dir = File.join(context.cookbook_root, context.cookbook_name)
 # cookbook root dir
 directory cookbook_dir
 
-# metadata.rb
-template "#{cookbook_dir}/metadata.rb" do
-  helpers(ChefDK::Generator::TemplateHelper)
-  action :create_if_missing
-end
-
-# README
-template "#{cookbook_dir}/README.md" do
-  helpers(ChefDK::Generator::TemplateHelper)
-  action :create_if_missing
-end
-
-# CHANGELOG
-template "#{cookbook_dir}/CHANGELOG.md" do
-  helpers(ChefDK::Generator::TemplateHelper)
-  action :create_if_missing
+%w(metadata.rb README.md CHANGELOG.md).each do |f|
+  template File.join(cookbook_dir, f) do
+    helpers(ChefDK::Generator::TemplateHelper)
+    action :create_if_missing
+  end
 end
 
 # chefignore
@@ -66,11 +55,6 @@ end
 
 # Guard
 cookbook_file "#{cookbook_dir}/Guardfile" do
-  action :create_if_missing
-end
-
-# RuboCop
-cookbook_file "#{cookbook_dir}/.rubocop.yml" do
   action :create_if_missing
 end
 
@@ -125,22 +109,21 @@ end
 directory "#{cookbook_dir}/recipes"
 
 template "#{cookbook_dir}/recipes/default.rb" do
-  source "recipe.rb.erb"
+  source 'recipe.rb.erb'
   helpers(ChefDK::Generator::TemplateHelper)
   action :create_if_missing
 end
 
 # git
 if context.have_git
-  if !context.skip_git_init
-
-    execute("initialize-git") do
-      command("git init .")
+  unless context.skip_git_init
+    execute('initialize-git') do
+      command('git init .')
       cwd cookbook_dir
     end
   end
 
   cookbook_file "#{cookbook_dir}/.gitignore" do
-    source "gitignore"
+    source 'gitignore'
   end
 end

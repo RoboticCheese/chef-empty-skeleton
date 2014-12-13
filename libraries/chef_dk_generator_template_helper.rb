@@ -20,6 +20,9 @@
 
 module ChefDK
   module Generator
+    # A monkey patch to add some extra TemplateHelper methods
+    #
+    # @author Jonathan Hartman <j@p4nt5.com>
     module TemplateHelper
       def recipe_name
         defined?(new_file_basename) ? new_file_basename : 'default'
