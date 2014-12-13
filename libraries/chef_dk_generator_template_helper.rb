@@ -33,7 +33,7 @@ module ChefDK
         cookbook_name.gsub('-', '_')
       end
 
-      [:copyright_holder, :email, :license].each do |i|
+      [:copyright_holder, :username, :email, :license].each do |i|
         define_method(i) { node['code_generator'][i] }
       end
     end
