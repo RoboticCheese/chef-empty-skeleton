@@ -16,6 +16,8 @@ group :test do
   gem 'countloc'
   gem 'rubocop'
   gem 'foodcritic'
+  # As of 1.6.5, Nokogiri fails to build in Travis
+  gem 'nokogiri', '~> 1.5.0'
   gem 'rspec', '>= 3'
   gem 'chefspec', '>= 4'
   gem 'simplecov'
