@@ -22,14 +22,15 @@ end
 
 desc 'Run knife cookbook syntax test'
 task :cookbook_test do
-  path = File.expand_path('../..', __FILE__)
-  cb = File.basename(File.expand_path('..', __FILE__))
+  path = File.expand_path('../cookbooks', __FILE__)
+  cb = 'code_generator'
   Kernel.system "knife cookbook test -c test/knife.rb -o #{path} #{cb}"
   $CHILD_STATUS == 0 || fail('Cookbook syntax check failed!')
 end
 
 FoodCritic::Rake::LintTask.new do |f|
-  f.options = { fail_tags: %w(any) }
+  f.options = { fail_tags: %w(any),
+                cookbook_paths: %w(cookbooks/code_generator) }
 end
 
 # RSpec::Core::RakeTask.new(:spec)

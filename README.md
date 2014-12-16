@@ -1,77 +1,25 @@
-Code Generator Cookbook
-=======================
-[![Build Status](http://img.shields.io/travis/RoboticCheese/code_generator-chef.svg)][travis]
-[![Code Climate](http://img.shields.io/codeclimate/github/RoboticCheese/code_generator-chef.svg)][codeclimate]
+Code Generator Repo
+===================
+[![Build Status](http://img.shields.io/travis/RoboticCheese/generator-chef-repo.svg)][travis]
+[![Code Climate](http://img.shields.io/codeclimate/github/RoboticCheese/generator-chef-repo.svg)][codeclimate]
 
-[travis]: http://travis-ci.org/RoboticCheese/code_generator-chef
-[codeclimate]: https://codeclimate.com/github/RoboticCheese/code_generator-chef
+[travis]: http://travis-ci.org/RoboticCheese/generator-chef-repo
+[codeclimate]: https://codeclimate.com/github/RoboticCheese/generator-chef-repo
 
-A customized version of the generator cookbook included with Chef-DK.
+A Chef repo for a customized Chef-DK generator cookbook. See
+`cookbooks/code_generator/README.md` for more details.
 
 Requirements
 ============
 
-This cookbook operates standalone with no cookbook dependencies.
+This repo operates standalone with no cookbook dependencies.
 
 Usage
 =====
 
-Download and point the `chef generate` command at that cookbooks dir, e.g.
+Download the repo and point `chef generate` at the cookbooks dir, e.g.
 
     chef generate cookbook -g ~/cookbooks cookbook-name
-
-Customizations
-==============
-
-* Use a fuller README template for cookbooks
-* Add a CHANGELOG for cookbooks
-* Add a Gemfile for cookbooks
-* Add a Rakefile for cookbooks
-* Add a ChefSpec skeleton and `spec_helper` file for cookbooks
-* Add a ServerSpec skeleton and `spec_helper` for cookbooks
-* Add a `.kitchen.travis.yml` Kitchen config for TravisCI for cookbooks
-* Add a blank `.env.sh` file for DigitalOcean credential env variables for
-  cookbooks
-* Use attributes in place of certain command line switches (see below)
-* Create an example attribute set to nil for attributes
-* Place encoding comments in all generated Ruby files
-
-Recipes
-=======
-
-This cookbook contains a generator recipe for each Chef structure supported by
-`chef generate`.
-
-***app***
-
-***attribute***
-
-***cookbook***
-
-***cookbook_file***
-
-***lwrp***
-
-***policyfile***
-
-***recipe***
-
-***repo***
-
-***template***
-
-Attributes
-==========
-
-This cookbook uses a set of attributes for certain options to save having to
-pass them to `chef generate` every time.
-
-***default***
-
-    default['code_generator']['copyright_holder'] = 'Jonathan Hartman'
-    default['code_generator']['username'] = 'RoboticCheese'
-    default['code_generator']['email'] = 'j@p4nt5.com'
-    default['code_generator']['license'] = 'apache2'
 
 Contributing
 ============
