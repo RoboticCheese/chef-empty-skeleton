@@ -19,7 +19,7 @@ Usage
 
 Download the repo and point `chef generate` at the cookbooks dir, e.g.
 
-    chef generate cookbook -g ~/cookbooks cookbook-name
+    chef generate cookbook -g ~/generator-chef-repo/cookbooks cookbook-name
 
 Contributing
 ============
