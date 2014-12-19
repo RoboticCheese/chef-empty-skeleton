@@ -3,7 +3,7 @@
 # Cookbook Name:: <%= cookbook_name %>
 # Attributes:: <%= attribute_name %>
 #
-<%= license_description('#').rstrip %>
+<%= license_description('#').lines.map(&:rstrip).join("\n") %>
 #
 
 default['<%= attribute_namespace %>'] = nil
