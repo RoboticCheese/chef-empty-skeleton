@@ -53,6 +53,20 @@ template "#{cookbook_dir}/recipes/default.rb" do
   helpers(ChefDK::Generator::TemplateHelper)
 end
 
+# RSpec/ChefSpec
+directory "#{cookbook_dir}/spec"
+cookbook_file "#{cookbook_dir}/spec/spec_helper.rb" do
+  source 'spec_helper.chefspec.rb'
+  action :create_if_missing
+end
+directory "#{cookbook_dir}/spec/recipes"
+template "#{cookbook_dir}/spec/recipes/default_spec.rb" do
+  source 'recipe_spec.rb.erb'
+  variables(recipe_name: 'default')
+  helpers(ChefDK::Generator::TemplateHelper)
+  action :create_if_missing
+end
+
 # git
 if context.have_git
   execute('initialize-git') do
