@@ -25,7 +25,7 @@ Create new cookbooks in this directory with Knife.
 
 This will create all the cookbook directory components. You don't need to use them all, and can delete the ones you don't need. It also creates a README file, metadata.rb and default recipe.
 
-You can also download cookbooks directly from the Opscode Cookbook Site. There are two subcommands to help with this depending on what your preference is.
+You can also download cookbooks directly from the Chef Supermarket Site. There are two subcommands to help with this depending on what your preference is.
 
 The first and recommended method is to use a vendor branch if you're using Git. This is automatically handled with Knife.
 
@@ -33,7 +33,7 @@ The first and recommended method is to use a vendor branch if you're using Git. 
 
 This will:
 
-* Download the cookbook tarball from cookbooks.opscode.com.
+* Download the cookbook tarball from supermarket.chef.io.
 * Ensure its on the git master branch.
 * Checks for an existing vendor branch, and creates if it doesn't.
 * Checks out the vendor branch (chef-vendor-COOKBOOK).
