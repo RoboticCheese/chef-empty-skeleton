@@ -14,6 +14,23 @@ directory app_dir
 
 # Top level files
 
+# ServerSpec
+directory "#{cookbook_dir}/test/integration/default/serverspec" do
+  recursive true
+end
+cf = "#{cookbook_dir}/test/integration/default/serverspec/spec_helper.rb"
+cookbook_file cf do
+  source 'spec_helper.serverspec.rb'
+  action :create_if_missiong
+end
+t = "#{cookbook_dir}/test/integration/default/serverspec/default_spec.rb"
+template t do
+  source 'serverspec_spec.rb.erb'
+  variables(spec_name: 'default')
+  helpers(ChefDK::Generator::TemplateHelper)
+  action :create_if_missing
+end
+
 # TK
 template "#{app_dir}/.kitchen.yml" do
   source 'kitchen.yml.erb'
