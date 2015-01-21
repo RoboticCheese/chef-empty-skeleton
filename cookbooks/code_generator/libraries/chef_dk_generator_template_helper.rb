@@ -24,10 +24,9 @@ module ChefDK
     #
     # @author Jonathan Hartman <j@p4nt5.com>
     module TemplateHelper
-      def recipe_name
+      def attribute_name
         defined?(new_file_basename) ? new_file_basename : 'default'
       end
-      alias_method :attribute_name, :recipe_name
 
       def attribute_namespace
         cookbook_name.gsub('-', '_')
