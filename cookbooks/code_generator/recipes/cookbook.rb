@@ -53,6 +53,8 @@ cookbook_file "#{cookbook_dir}/spec/spec_helper.rb" do
 end
 directory "#{cookbook_dir}/spec/recipes"
 template "#{cookbook_dir}/spec/recipes/default_spec.rb" do
+  source 'recipe_spec.rb.erb'
+  variables(recipe_name: 'default')
   helpers(ChefDK::Generator::TemplateHelper)
   action :create_if_missing
 end
