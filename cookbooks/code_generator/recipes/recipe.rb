@@ -13,4 +13,5 @@ recipe_path = File.join(cookbook_dir,
 template recipe_path do
   source 'recipe.rb.erb'
   helpers(ChefDK::Generator::TemplateHelper)
+  action :create_if_missing
 end
