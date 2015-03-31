@@ -20,14 +20,6 @@ task :loc do
   Kernel.system 'countloc -r .'
 end
 
-desc 'Run knife cookbook syntax test'
-task :cookbook_test do
-  path = File.expand_path('../cookbooks', __FILE__)
-  cb = 'code_generator'
-  Kernel.system "knife cookbook test -c test/knife.rb -o #{path} #{cb}"
-  $CHILD_STATUS == 0 || fail('Cookbook syntax check failed!')
-end
-
 FoodCritic::Rake::LintTask.new do |f|
   f.options = { fail_tags: %w(any),
                 cookbook_paths: %w(cookbooks/code_generator) }
@@ -39,4 +31,4 @@ end
 
 # Stove::RakeTask.new
 
-task default: %w(cane rubocop loc cookbook_test foodcritic) # spec kitchen:all)
+task default: %w(cane rubocop loc foodcritic) # spec kitchen:all)

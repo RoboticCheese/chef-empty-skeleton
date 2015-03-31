@@ -26,11 +26,6 @@ cookbook_file "#{cookbook_dir}/chefignore"
   end
 end
 
-directory "#{cookbook_dir}/test"
-cookbook_file "#{cookbook_dir}/test/knife.rb" do
-  action :create_if_missing
-end
-
 # RSpec/ChefSpec
 directory "#{cookbook_dir}/spec"
 cookbook_file "#{cookbook_dir}/spec/spec_helper.rb" do
