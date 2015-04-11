@@ -37,9 +37,11 @@ template "#{app_dir}/.kitchen.yml" do
   helpers(ChefDK::Generator::TemplateHelper)
 end
 
-# README
-template "#{app_dir}/README.md" do
-  helpers(ChefDK::Generator::TemplateHelper)
+# README, CHANGELOG, and CoC
+%w(README CHANGELOG CODE_OF_CONDUCT).each do |f|
+  template "#{app_dir}/#{f}.md" do
+    helpers(ChefDK::Generator::TemplateHelper)
+  end
 end
 
 # Generated Cookbook:

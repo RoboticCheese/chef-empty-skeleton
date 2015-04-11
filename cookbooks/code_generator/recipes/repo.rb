@@ -20,6 +20,11 @@ cookbook_file "#{repo_dir}/README.md" do
   source 'repo/README.md'
 end
 
+# CoC
+template "#{repo_dir}/CODE_OF_CONDUCT.md" do
+  helpers(ChefDK::Generator::TemplateHelper)
+end
+
 cookbook_file "#{repo_dir}/Rakefile" do
   source 'repo/Rakefile'
 end
