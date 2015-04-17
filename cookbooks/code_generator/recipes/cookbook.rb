@@ -41,16 +41,15 @@ template "#{cookbook_dir}/spec/recipes/default_spec.rb" do
 end
 
 # ServerSpec
-directory "#{cookbook_dir}/test/integration/default/serverspec" do
+d = ::File.join(cookbook_dir, 'test/integration/default/serverspec')
+directory d do
   recursive true
 end
-cf = "#{cookbook_dir}/test/integration/default/serverspec/spec_helper.rb"
-cookbook_file cf do
+cookbook_file ::File.join(d, 'spec_helper.rb') do
   source 'spec_helper.serverspec.rb'
   action :create_if_missing
 end
-t = "#{cookbook_dir}/test/integration/default/serverspec/default_spec.rb"
-template t do
+template ::File.join(d, 'localhost/default_spec.rb') do
   source 'serverspec_spec.rb.erb'
   variables(spec_name: 'default')
   helpers(ChefDK::Generator::TemplateHelper)
