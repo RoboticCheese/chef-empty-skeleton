@@ -42,7 +42,7 @@ end
 
 # ServerSpec
 d = ::File.join(cookbook_dir, 'test/integration/default/serverspec')
-directory d do
+directory ::File.join(d, 'localhost') do
   recursive true
 end
 cookbook_file ::File.join(d, 'spec_helper.rb') do
