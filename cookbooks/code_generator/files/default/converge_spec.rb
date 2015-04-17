@@ -1,6 +1,6 @@
 # Encoding: UTF-8
 
-require 'spec_helper'
+require_relative '../spec_helper'
 
 describe 'demo::default' do
   let(:chef_run) { ChefSpec::Runner.new.converge('demo::default') }
