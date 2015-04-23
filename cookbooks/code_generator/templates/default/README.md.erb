@@ -3,16 +3,7 @@ head = project_description
 %>
 <%= head %>
 <%= '=' * head.length %>
-[![Cookbook Version](https://img.shields.io/cookbook/v/<%= cookbook_name %>.svg)][cookbook]
-[![Build Status](https://img.shields.io/travis/<%= username %>/<%= cookbook_name %>-chef.svg)][travis]
-[![Code Climate](https://img.shields.io/codeclimate/github/<%= username %>/<%= cookbook_name %>-chef.svg)][codeclimate]
-[![Coverage Status](https://img.shields.io/coveralls/<%= username %>/<%= cookbook_name %>-chef.svg)][coveralls]
-
-[cookbook]: https://supermarket.chef.io/cookbooks/<%= cookbook_name %>
-[travis]: https://travis-ci.org/<%= username %>/<%= cookbook_name %>-chef
-[codeclimate]: https://codeclimate.com/github/<%= username %>/<%= cookbook_name %>-chef
-[coveralls]: https://coveralls.io/r/<%= username %>/<%= cookbook_name %>-chef
-
+<%= badges %>
 TODO: Enter the cookbook description here.
 
 Requirements

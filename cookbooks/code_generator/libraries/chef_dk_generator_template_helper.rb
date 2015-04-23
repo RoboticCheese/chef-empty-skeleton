@@ -31,7 +31,7 @@ module ChefDK
       end
 
       def project_description
-        n = project_name.split('-').map { |i| i.capitalize }.join(' ')
+        n = project_name.split('-').map(&:capitalize).join(' ')
         return n << ' App' if defined?(app_name)
         return n << ' Repo' if defined?(repo_name)
         return n << ' Cookbook' if defined?(cookbook_name)
@@ -47,6 +47,58 @@ module ChefDK
 
       [:copyright_holder, :username, :email, :license].each do |i|
         define_method(i) { node['code_generator'][i] }
+      end
+
+      def badges
+        badge_headers << "\n" << badge_links
+      end
+
+      private
+
+      def badge_headers
+        <<-EOH.gsub(/^ +/, '')
+          #{cookbook_badge[:badge]}
+          #{build_badge[:badge]}
+          #{style_badge[:badge]}
+          #{coverage_badge[:badge]}
+        EOH
+      end
+
+      def badge_links
+        <<-EOH.gsub(/^ +/, '')
+          #{cookbook_badge[:target]}
+          #{build_badge[:target]}
+          #{style_badge[:target]}
+          #{coverage_badge[:target]}
+        EOH
+      end
+
+      def cookbook_badge
+        { badge: '[![Cookbook Version](https://img.shields.io/cookbook/v' \
+                 "/#{cookbook_name}.svg)][cookbook]",
+          target: '[cookbook]: https://supermarket.chef.io/cookbooks' \
+                  "/#{cookbook_name}" }
+      end
+
+      def build_badge
+        { badge: "[![Build Status](https://img.shields.io/travis/#{username}" \
+                 "/#{cookbook_name}-chef.svg)][travis]",
+          target: "[travis]: https://travis-ci.org/#{username}" \
+                  "/#{cookbook_name}-chef" }
+      end
+
+      def style_badge
+        { badge: '[![Code Climate](https://img.shields.io/codeclimate/github' \
+                 "/#{username}/#{cookbook_name}-chef.svg)][codeclimate]",
+          target: "[codeclimate]: https://codeclimate.com/github/#{username}" \
+                  "/#{cookbook_name}-chef" }
+      end
+
+      def coverage_badge
+        { badge: '[![Coverage Status](https://img.shields.io/coveralls' \
+                 "/#{username}/#{cookbook_name}-chef.svg)][coveralls]",
+          target: "[coveralls]: https://coveralls.io/r/#{username}" \
+                  "/#{cookbook_name}-chef" }
       end
     end
   end
