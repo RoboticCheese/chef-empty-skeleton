@@ -1,8 +1,7 @@
 <%
 require 'date'
 
-cn = cookbook_name.split('-').map { |i| i.capitalize }.join(' ')
-head = "#{cn} Cookbook CHANGELOG"
+head = "#{project_description} CHANGELOG"
 %>
 <%= head %>
 <%= '=' * head.length %>

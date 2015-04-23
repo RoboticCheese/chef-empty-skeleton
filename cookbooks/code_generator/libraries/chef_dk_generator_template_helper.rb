@@ -24,6 +24,19 @@ module ChefDK
     #
     # @author Jonathan Hartman <j@p4nt5.com>
     module TemplateHelper
+      def project_name
+        return app_name if defined?(app_name)
+        return repo_name if defined?(repo_name)
+        return cookbook_name if defined?(cookbook_name)
+      end
+
+      def project_description
+        n = project_name.split('-').map { |i| i.capitalize }.join(' ')
+        return n << ' App' if defined?(app_name)
+        return n << ' Repo' if defined?(repo_name)
+        return n << ' Cookbook' if defined?(cookbook_name)
+      end
+
       def attribute_name
         defined?(new_file_basename) ? new_file_basename : 'default'
       end
