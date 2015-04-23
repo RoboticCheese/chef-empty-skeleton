@@ -12,7 +12,7 @@ directory repo_dir
 
 # Top level files
 template "#{repo_dir}/LICENSE" do
-  source "LICENSE.#{context.license}.erb"
+  source "LICENSE.#{node['code_generator']['license']}.erb"
   helpers(ChefDK::Generator::TemplateHelper)
 end
 
