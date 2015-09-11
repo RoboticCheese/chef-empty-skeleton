@@ -42,7 +42,7 @@ module ChefDK
       end
 
       def attribute_namespace
-        cookbook_name.gsub('-', '_')
+        cookbook_name.tr('-', '_')
       end
 
       [:copyright_holder, :username, :email, :license].each do |i|
