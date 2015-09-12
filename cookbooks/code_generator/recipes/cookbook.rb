@@ -63,7 +63,7 @@ template "#{cookbook_dir}/.kitchen.yml" do
   variables(
     driver: 'vagrant',
     provisioner: 'chef_zero',
-    platforms: %w(ubuntu-14.04 ubuntu-12.04 centos-6.5 centos-5.11),
+    platforms: %w(ubuntu-14.04 ubuntu-12.04 centos-7.1 centos-6.7 centos-5.11),
     suites: %w(default)
   )
   action :create_if_missing
