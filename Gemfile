@@ -12,12 +12,8 @@ end
 
 group :test do
   gem 'rake'
-  gem 'cane'
-  gem 'countloc'
   gem 'rubocop'
   gem 'foodcritic'
-  # As of 1.6.5, Nokogiri fails to build in Travis
-  gem 'nokogiri', '~> 1.5.0'
   gem 'rspec', '>= 3'
   gem 'chefspec', '>= 4'
   gem 'simplecov'
@@ -25,13 +21,11 @@ group :test do
   gem 'coveralls'
   gem 'fauxhai'
   gem 'test-kitchen'
-  gem 'kitchen-digitalocean', '>= 0.8.0'
   gem 'kitchen-vagrant'
 end
 
 group :integration do
   gem 'serverspec', '>= 2'
-  gem 'cucumber'
 end
 
 group :deploy do
