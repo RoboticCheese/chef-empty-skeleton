@@ -14,22 +14,6 @@ group :test do
   gem 'rake'
   gem 'rubocop'
   gem 'foodcritic'
-  gem 'rspec', '>= 3'
-  gem 'chefspec', '>= 4'
-  gem 'simplecov'
-  gem 'simplecov-console'
-  gem 'coveralls'
-  gem 'fauxhai'
-  gem 'test-kitchen'
-  gem 'kitchen-vagrant'
-end
-
-group :integration do
-  gem 'serverspec', '>= 2'
-end
-
-group :deploy do
-  gem 'stove'
 end
 
 group :production do
