@@ -24,6 +24,15 @@ module ChefDK
     #
     # @author Jonathan Hartman <j@p4nt5.com>
     module TemplateHelper
+      def issues_url
+        "#{source_url}/issues"
+      end
+
+      def source_url
+        "https://github.com/#{node['code_generator']['username']}/" \
+          "#{project_name}-chef"
+      end
+
       def project_name
         return app_name if defined?(app_name)
         return repo_name if defined?(repo_name)
