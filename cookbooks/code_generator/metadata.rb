@@ -17,10 +17,13 @@
 # limitations under the License.
 #
 
-name             'code_generator'
-maintainer       'Jonathan Hartman'
+name 'code_generator'
+maintainer 'Jonathan Hartman'
 maintainer_email 'j@p4nt5.com'
-license          'Apache 2 License'
-description      'Generates Chef code for Chef DK'
+license 'Apache 2 License'
+description 'Generates Chef code for Chef DK'
 long_description 'Generates Chef code for Chef DK'
-version          '0.1.0'
+version '0.1.0'
+
+source_url 'https://github.com/RoboticCheese/generator-chef-repo'
+issues_url 'https://github.com/RoboticCheese/generator-chef-repo/issues'
