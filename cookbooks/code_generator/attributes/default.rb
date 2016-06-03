@@ -21,4 +21,4 @@
 default['code_generator']['copyright_holder'] = 'Jonathan Hartman'
 default['code_generator']['username'] = 'RoboticCheese'
 default['code_generator']['email'] = 'j@hartman.io'
-default['code_generator']['license'] = 'apache2'
+default['code_generator']['license'] = 'apachev2'
