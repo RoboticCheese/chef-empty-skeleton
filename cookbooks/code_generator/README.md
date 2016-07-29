@@ -58,14 +58,14 @@ pass them to `chef generate` every time.
 
     default['code_generator']['copyright_holder'] = 'Jonathan Hartman'
     default['code_generator']['username'] = 'RoboticCheese'
-    default['code_generator']['email'] = 'j@p4nt5.com'
+    default['code_generator']['email'] = 'j@hartman.io'
     default['code_generator']['license'] = 'apachev2'
 
 License & Authors
 =================
-- Author: Jonathan Hartman <j@p4nt5.com>
+- Author: Jonathan Hartman <j@hartman.io>
 
-Copyright 2014 Jonathan Hartman
+Copyright 2014-2016, Jonathan Hartman
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -4,7 +4,7 @@
 # Cookbook Name:: code_generator
 # Library:: chef_dk_generator_template_helper
 #
-# Copyright 2014-2015, Jonathan Hartman
+# Copyright 2014-2016, Jonathan Hartman
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ module ChefDK
   module Generator
     # A monkey patch to add some extra TemplateHelper methods
     #
-    # @author Jonathan Hartman <j@p4nt5.com>
+    # @author Jonathan Hartman <j@hartman.io>
     module TemplateHelper
       def issues_url
         "#{source_url}/issues"
