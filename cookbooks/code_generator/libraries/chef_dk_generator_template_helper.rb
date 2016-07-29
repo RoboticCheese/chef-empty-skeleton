@@ -1,4 +1,5 @@
-# Encoding: UTF-8
+# encoding: utf-8
+# frozen_string_literal: true
 #
 # Cookbook Name:: code_generator
 # Library:: chef_dk_generator_template_helper
