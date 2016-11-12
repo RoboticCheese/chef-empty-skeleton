@@ -40,8 +40,8 @@ TODO: Describe each included resource.
 Syntax:
 
     <%= cookbook_name.gsub('-', '_') %> 'my_resource' do
-        attribute1 'value1'
-        action :create
+      property1 'value1'
+      action :create
     end
 
 Actions:
@@ -50,12 +50,12 @@ Actions:
 |---------|--------------|
 | action1 | Do something |
 
-Attributes:
+Properties:
 
-| Attribute  | Default        | Description          |
-|------------|----------------|----------------------|
-| attribute1 | `'some_value'` | Do something         |
-| action     | `:create`      | Action(s) to perform |
+| Property  | Default        | Description          |
+|-----------|----------------|----------------------|
+| property1 | `'some_value'` | Do something         |
+| action    | `:create`      | Action(s) to perform |
 
 Providers
 =========
