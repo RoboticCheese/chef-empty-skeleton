@@ -16,6 +16,7 @@ group :test do
   gem 'coveralls'
   gem 'fauxhai'
   gem 'foodcritic'
+  gem 'kitchen-dokken'
   gem 'kitchen-vagrant'
   gem 'rake'
   gem 'rspec'

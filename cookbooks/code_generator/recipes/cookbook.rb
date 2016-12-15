@@ -72,7 +72,7 @@ end
 
 template "#{cookbook_dir}/.kitchen.travis.yml" do
   source 'kitchen.yml.erb'
-  variables(driver: 'digitalocean')
+  variables(driver: 'dokken')
   action :create_if_missing
 end
 
